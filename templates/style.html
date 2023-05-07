@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Items For Rent:</title>
+  <style>
+      body {
+        background-image: url('/newave.svg');
+        background-size: cover;
+
+background-repeat:no-repeat!important;
+height:100%;
+width:100%;
+      }
+    .btn {
+      padding: 10px 20px;
+      background-color: #9370DB;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    #signup-btn {
+      float: right;
+      margin: 10px;
+    }
+    #postad-btn {
+      float: right;
+      margin: 10px;
+    }
+    .clear {
+      clear: both;
+    }
+     .image-grid {
+      display: flex;
+         justify-content: center;
+      flex-wrap: wrap;
+    }
+    .image-wrapper {
+      width: 24%;
+      padding: 30px;
+      background: rgba(127,182,219, 0.5);
+      margin: 20px;
+      border-radius: 15px;
+
+    }
+    .image-wrapper img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      opacity: 85%;
+    }
+    .image-wrapper:hover{
+        cursor:pointer;
+        box-shadow:9px 9px 5px rgb(127,182,219);
+    }
+  </style>
+</head>
+<body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // Check if the browser supports geolocation
+    if (navigator.geolocation) {
+      // Get the user's location
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+
+        // Send the location data to the Flask server
+        $.ajax({
+          url: '/location',
+          type: 'POST',
+          data: {
+            'latitude': latitude,
+            'longitude': longitude
+          },
+          success: function(response) {
+            console.log(response);
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      });
+    } else {
+      // If geolocation is not supported, display an error message
+      console.log("Geolocation is not supported by this browser.");
+    }
+  </script>
+  <div>
+    <a id="signup-btn" class="btn" href="/templates/sign-up.html">Sign Up</a>
+    <a id="postad-btn" class="btn" href="/templates/post_ad.html">Post Ad</a>
+    <div class="clear"></div>
+  </div>
+ <div class="image-grid">
+    <div class="image-wrapper">
+      <img src="../crock.jpg" alt="Image 1">
+        <h1>Slow Cooker</h1>
+        <h1>Crock-Pot  slow cooker 6qt</h1>
+        <h2>Rent/Day: 6.00 CAD</h2>
+        <h3>Seller: Maryam Ahmed</h3>
+
+    </div>
+    <div class="image-wrapper">
+      <img src="../lawnmower.jpg" alt="Image 2">
+        <h1>Lawn Mower</h1>
+        <h1>Toro 22-inch Recycler Briggs & Stratton Self Propelled</h1>
+        <h2>Rent/Day: 10.00 CAD</h2>
+        <h3>Seller: John Doe</h3>
+    </div>
+    <div class="image-wrapper">
+      <img src="../popcorn.jpg" alt="Image 3">
+         <h1>Popcorn Maker</h1>
+        <h1>Frigidarie Retro Style Popcorn Maker</h1>
+        <h2>Rent/Day: 5.00 CAD</h2>
+        <h3>Seller: Khadija Ali</h3>
+    </div>
+    <div class="image-wrapper">
+      <img src="../cottoncandy.jpg" alt="Image 4">
+         <h1>Cotton Candy Machine</h1>
+        <h1>Salton Cotton Candy Maker CCM1779</h1>
+        <h2>Rent/Day: 5.00 CAD</h2>
+        <h3>Seller: Jane Smith</h3>
+    </div>
+    <div class="image-wrapper">
+      <img src="../choc.jpg" alt="Image 5">
+         <h1>Chocolate Fountain</h1>
+        <h1>Frigidaire Retro Chocolate Fountain</h1>
+        <h2>Rent/Day: 6.00 CAD</h2>
+        <h3>Seller: Bob Johnson</h3>
+    </div>
+    <div class="image-wrapper">
+      <img src="../washer.jpg" alt="Image 7">
+        <h1>Pressure Washer</h1>
+        <h1>Simoniz 2100 PSI 1.5 GPM Cold Water Wheeled Electric Pressure Washer</h1>
+        <h2>Rent/Day: 15.00 CAD</h2>
+        <h3>Seller: Feng Li</h3>
+    </div>
+    <div class="image-wrapper">
+      <img src="../bouncy.jpg" alt="Image 9">
+        <h1>Bouncy Castle</h1>
+        <h1>Little Tikes Junior Sports N Slide Bouncer</h1>
+        <h2>Rent/Day: 13.00 CAD</h2>
+        <h3>Seller: Mei Wong</h3>
+    </div>
+    <div class="image-wrapper">
+      <img src="../tiree.jpg" alt="Image 10">
+        <h1>Tire Inflator</h1>
+        <h1>MotoMaster Digital Road & Home Inflator</h1>
+        <h2>Rent/Day: 4.00 CAD</h2>
+        <h3>Seller: Bettsy Johnson</h3>
+    </div>
+  </div>
+</body>
+</html>
+
