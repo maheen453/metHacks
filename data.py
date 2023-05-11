@@ -1,8 +1,11 @@
 import sqlite3
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
+@app.route('/')
+def style():
+    return render_template('style.html')
 
 @app.route('/clients')
 def get_clients():
