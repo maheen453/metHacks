@@ -1,11 +1,16 @@
+import os
 import sqlite3
 from flask import Flask, jsonify, request, render_template
 
 app = Flask(__name__, static_url_path='/static')
 
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
+
 @app.route('/')
 def style():
     return render_template('style.html')
+
 
 @app.route('/clients')
 def get_clients():

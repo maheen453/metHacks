@@ -1,3 +1,4 @@
+import os
 import sqlite3
 import requests
 from flask import request
@@ -15,6 +16,8 @@ if response.status_code == 200:
 else:
     print(f'Request failed with status code {response.status_code}')
 
+
+db_path = os.environ.get('DATABASE_URL')
 conn = sqlite3.connect('database.db')
 c = conn.cursor()
 conn.execute('''DROP TABLE IF EXISTS clients''')
