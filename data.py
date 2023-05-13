@@ -9,7 +9,7 @@ DATABASE_URL = os.environ.get('DATABASE_URL')
 
 @app.route('/')
 def style():
-    return render_template('style.html')
+    return render_template('index.html')
 
 
 @app.route('/clients')
