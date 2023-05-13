@@ -4,7 +4,7 @@ from flask import Flask, jsonify, request, render_template
 
 app = Flask(__name__, static_url_path='/static')
 
-DATABASE_URL = os.environ.get('DATABASE_URL')
+DATABASE_URL = os.environ.get('DATABASE_URL',  check_same_thread=False)
 
 
 @app.route('/')
