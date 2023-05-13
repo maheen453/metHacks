@@ -14,7 +14,7 @@ def style():
 
 @app.route('/clients')
 def get_clients():
-    conn = sqlite3.connect('database.db')
+    conn = sqlite3.connect('DATABASE_URL')
     c = conn.cursor()
     c.execute('SELECT * FROM clients')
     clients = c.fetchall()
